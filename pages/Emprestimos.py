@@ -24,13 +24,13 @@ with col1:
     id_usuario = st.selectbox("usuario", options=[user['id'] for user in usuarios], label_visibility="collapsed", index=None, placeholder="ID do Usuário")
 
 with col2:
-    bikes_disp = [bike['id'] for bike in bikes if bike["status"] == "Disponivel"]
+    bikes_disp = [bike['id'] for bike in bikes if bike["status"] == "disponivel"]
     if len(bikes_disp):
         pholder = "ID da Bike"
     else:
         pholder = "Sem bikes disponíveis"
 
-    id_bike = st.selectbox("bikes disponiveis", options=[bike['id'] for bike in bikes if bike["status"] == "Disponivel"], label_visibility="collapsed", index=None, placeholder=pholder, ) 
+    id_bike = st.selectbox("bikes disponiveis", options=[bike['id'] for bike in bikes if bike["status"] == "disponivel"], label_visibility="collapsed", index=None, placeholder=pholder, ) 
 
 auth_emp = id_usuario and id_bike
 if st.button("Concluir empréstimo", disabled=not(auth_emp)):
@@ -69,7 +69,8 @@ if len(emprestimos_filtrado) > 0:
         col1.write(str(id))
         col2.write(str(df_emprestimos["usuario_id"][i]))
         col3.write(str(df_emprestimos["bicicleta_id"][i]))
-        col4.write("data")
+        # col4.write(get_bikes(df_emprestimos["bicicleta_id"][i])["emprestimo"]["inicio"][:10])
+        col4.write("A")
         button_phold = col5.empty()
         delete = button_phold.button("Apagar", key=f"{i}a")
 
