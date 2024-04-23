@@ -70,7 +70,7 @@ if len(emprestimos_filtrado) > 0:
         col2.write(str(df_emprestimos["usuario_id"][i]))
         col3.write(str(df_emprestimos["bicicleta_id"][i]))
         # col4.write(get_bikes(df_emprestimos["bicicleta_id"][i])["emprestimo"]["inicio"][:10])
-        col4.write("A")
+        col4.write("N/A")
         button_phold = col5.empty()
         delete = button_phold.button("Apagar", key=f"{i}a")
 
